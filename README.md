@@ -1,6 +1,6 @@
 steps:
 1. clone the repository
-   **git clone https://github.com/AkhilSamantri/artalchemy.git**
+   **git clone https://github.com/Bhoomikaav/Art-Alchemy.git**
 2. install dependencies
    **npm install**
 3. run the server

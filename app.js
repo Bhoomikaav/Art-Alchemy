@@ -11,27 +11,30 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
-    
-// mysql -h sql6.freemysqlhosting.net -P 3306 -u sql6694597 -p
-// var db = mysql.createConnection({
-//     host: "sql6.freemysqlhosting.net",
-//     user: "sql6694597",
-//     password: "8qqTkgKvQr",
-//     database: "sql6694597"
+
+// var db=mysql.createConnection({
+//     host:"localhost",
+//     user:"root",
+//     password:"Bhoomika@8",
+//     database:"alchemy",
+//     port:3306
 // });
 
+
+// mysql -u admin -h alchemy.clc40qqmmo40.ap-southeast-2.rds.amazonaws.com -P 3306 -p
 var db=mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"Bhoomika@8",
+    host:"alchemy.clc40qqmmo40.ap-southeast-2.rds.amazonaws.com",
+    user:"admin",
+    password:"bhoomika",
     database:"alchemy",
     port:3306
 });
 
+
 //abbcasfjdsjf
 var flag1=0;
 var flag2=0;
-var flag3=0;
+var flag3=0; 
 var flag4=0;
 // connecting to databases
 
@@ -40,9 +43,9 @@ db.connect(function(err) {
         console.log(err);
     } else {
         console.log("Connected!");
-        db.query(`SELECT table_name FROM information_schema.tables WHERE table_schema = 'alchemy';`,(err,tables)=>{
+        db.query(`SELECT TABLE_NAME FROM information_schema.tables WHERE table_schema = 'alchemy';`,(err,tables)=>{
             for(var i=0;i<tables.length;i++){
-                if(tables[i].table_name == "login_cred") flag1 = 1;
+                if(tables[i].TABLE_NAME == "login_cred") flag1 = 1;
             }
         
 
@@ -57,7 +60,7 @@ db.connect(function(err) {
             }
 
             for(var i=0;i<tables.length;i++){
-                if(tables[i].table_name == "paintings") flag2 = 1;
+                if(tables[i].TABLE_NAME == "paintings") flag2 = 1;
             }
  
 
@@ -72,7 +75,7 @@ db.connect(function(err) {
             }
 
             for(var i=0;i<tables.length;i++){
-                if(tables[i].table_name == "contact") flag3 = 1;
+                if(tables[i].TABLE_NAME == "contact") flag3 = 1;
             }
 
 
@@ -87,7 +90,7 @@ db.connect(function(err) {
             }
 
             for(var i=0;i<tables.length;i++){
-                if(tables[i].table_name == "abc") flag4 = 1;
+                if(tables[i].TABLE_NAME == "abc") flag4 = 1;
             }
 
 
